@@ -1,0 +1,12 @@
+<h1>All Expenses</h1>
+<%= link_to 'New Expense', new_expense_path %>
+<% @expenses.each do |expense| %>
+  <p><%= link_to expense.Name, expense %>
+    <p><%= expense.Amount %></p>
+    <ul>
+        <% expense.categories.each do |category| %>
+            <li><%= category.Name %></li>
+        <% end %>
+    </ul>
+  </p>
+<% end %>
