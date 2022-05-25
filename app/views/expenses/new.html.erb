@@ -5,7 +5,7 @@
   <%= f.label :Amount %>
   <%= f.text_field :Amount %>
   <%= f.label :Category %>
-  <%= f.select :category_ids, @categories.map { |c| [c.Name, c.id] } %>
+  <%= f.select :category_ids, @categories.map { |c| [c.Name, c.id] }, { include_hidden: false } , { multiple: true } %>
   <%= f.submit %>
 <% end %>
 

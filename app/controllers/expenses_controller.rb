@@ -8,16 +8,19 @@ class ExpensesController < ApplicationController
   end
 
   def create
+    @category = params[:expense][:category_ids]
     @new_expense = current_user.expenses.create(expense_params)
-    # @new_expense.categories = Category.find(params[:expense][:category_ids])
-    if @new_expense.save
+    @category.each do |category|
+      @categories_expenses = CategoriesExpense.create(expense_id: @new_expense.id, category_id: category)
+    end    
+    if @new_expense.save && @categories_expenses.save
       redirect_to root_path
     else
-      pp @new_expense.errors.full_messages.to_sentence
+      render :new
     end
   end
 
   def expense_params
-    params.require(:expense).permit(:Name, :category_ids, :Amount)
+    params.require(:expense).permit(:Name, :Amount)
   end
 end
