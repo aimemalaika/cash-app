@@ -1,5 +1,6 @@
-<h1> List of Categories </h1>
+<h1> List of Categories <%=  link_to "New Enpense", new_expense_path %> </h1>
 <% @categories.each do |category| %>
   <%= image_tag category.icon_url, height: "50px" %>
   <%= category.Name %>
+  <%= link_to "Show", category %>
 <% end %>
