@@ -1,0 +1,6 @@
+<h1> <%= @category.Name %> </h1>
+<%= image_tag @category.icon_url, height: "50px" %>
+<h1>List Expenses</h1>
+<% @expenses.each do |expense| %>
+  <%= link_to expense.Name, expense %>
+<% end %>
