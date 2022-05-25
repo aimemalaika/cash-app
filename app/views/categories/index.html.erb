@@ -3,4 +3,7 @@
   <%= image_tag category.icon_url, height: "50px" %>
   <%= category.Name %>
   <%= link_to "Show", category %>
+  <%= button_to "Delete", category, method: :delete, data: { confirm: "Are you sure?" } %>
 <% end %>
+
+<%= console %>

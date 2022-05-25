@@ -23,6 +23,18 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def destroy
+    @category = Category.find(params[:id])
+    @category.categories_expenses.each do |categories_expense|
+      if CategoriesExpense.where(expense_id: categories_expense.expense_id).count == 1
+        Expense.find(categories_expense.expense_id).destroy
+      end
+    end
+    @category.destroy
+    flash[:success] = 'Category deleted successfully'
+    redirect_to categories_path
+  end
+
   def category_params
     params.require(:category).permit(:Name, :icon)
   end

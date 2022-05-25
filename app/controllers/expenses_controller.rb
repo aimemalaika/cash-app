@@ -2,6 +2,7 @@ class ExpensesController < ApplicationController
   def index
     @expenses = current_user.expenses.order(created_at: :desc)
   end
+
   def new
     @expense = Expense.new
     @categories = Category.all
