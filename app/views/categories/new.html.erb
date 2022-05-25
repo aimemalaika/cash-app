@@ -1,0 +1,8 @@
+<h1>New Categories</h1>
+<%= form_for @category, local: true do |f| %>
+  <%= f.label :Name %>
+  <%= f.text_field :Name %>
+  <%= f.label :icon %>
+    <%= f.file_field :icon %>
+  <%= f.submit %>
+<% end %>
