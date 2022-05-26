@@ -161,3 +161,92 @@ header .smallackwoleadge {
 .login_form input {
   border-radius: 0;
 }
+
+.expense-card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 7px;
+}
+
+.card-text {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--gray-lighter);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0;
+}
+
+.category_name {
+  line-height: 2.6rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.total_amount {
+  font-size: 1.5rem;
+}
+
+.card-img-category {
+  width: 70px;
+  margin: auto;
+  height: 70px;
+  max-height: 70px;
+  overflow: hidden;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.d-flex a,
+.d-flex button {
+  padding: 10px 0 0 0;
+  font-size: 13px;
+}
+
+.logout_icon {
+  font-size: 12px !important;
+  color: var(--red-color);
+  margin-top: 5px;
+}
+
+.toggle-option {
+  font-size: 13px;
+  font-weight: 300;
+  border-radius: 50% !important;
+}
+
+.actions-toggle {
+  position: fixed;
+  right: 1%;
+  top: 90%;
+}
+
+.dropdown-menu.show {
+  background: transparent;
+  border: none;
+}
+
+.dropdown-item-list {
+  color: var(--white-color);
+  font-size: 13px;
+  background-color: var(--blue-color);
+  margin: 5px 0;
+  display: flex;
+}
+
+.dropdown-item-list a {
+  color: var(--white-color);
+}
+
+.dropdown-item-list:hover {
+  background-color: var(--blue-color);
+  color: var(--white-color);
+}
+
+.drop-icon {
+  padding: 8px 0 8px 12px;
+}
