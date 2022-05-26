@@ -8,7 +8,11 @@ class ExpensesController < ApplicationController
     @categories = Category.all
   end
 
-  def destroy; end
+  def destroy
+    @expense = Expense.find(params[:id])
+    @expense.destroy
+    redirect_to categories_path
+  end
 
   def create
     @category = params[:expense][:category_ids]
@@ -17,8 +21,10 @@ class ExpensesController < ApplicationController
       @categories_expenses = CategoriesExpense.create(expense_id: @new_expense.id, category_id: category)
     end
     if @new_expense.save && @categories_expenses.save
-      redirect_to root_path
+      flash[:success] = 'Expense was successfully created.'
+      redirect_to categories_path
     else
+      flash[:error] = "Expense was not created. du to #{@new_expense.errors.full_messages}"
       render :new
     end
   end

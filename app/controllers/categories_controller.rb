@@ -18,7 +18,7 @@ class CategoriesController < ApplicationController
       flash[:success] = 'Category created successfully'
       redirect_to categories_path
     else
-      flash[:error] = 'Category not created'
+      flash[:error] = "Category was not created. du to #{@category.errors.full_messages}"
       render 'new'
     end
   end

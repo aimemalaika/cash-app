@@ -1,9 +1,72 @@
-<h1> List of Categories <%=  link_to "New Enpense", new_expense_path %> </h1>
-<% @categories.each do |category| %>
-  <%= image_tag category.icon_url, height: "50px" %>
-  <%= category.Name %>
-  <%= link_to "Show", category %>
-  <%= button_to "Delete", category, method: :delete, data: { confirm: "Are you sure?" } %>
-<% end %>
-
-<%= console %>
+<header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>
+          <span>Categories</span>
+          <span class="smallackwoleadge"> 
+            <i class="fa fa-power-off logout_icon"></i> 
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-link smallackwoleadge" %>
+          </span>
+        </h1>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="expense-card my-3 mx-2">
+  <% @categories.each do |category| %>
+    <div class="card">
+      <%= image_tag category.icon_url, class: "card-img-category mt-1" %>
+      <div class="card-body">
+        <p class="card-text"> 
+          <span class="category_name"><%= category.Name %></span>
+          <span>$<span class="total_amount">30.00</span></span>
+        </p>
+        <div class="d-flex">
+          <%= link_to "Show", category, class: "btn btn-link" %>
+          <button type="button" class="btn btn-link text-danger" data-bs-toggle="modal" data-bs-target="#modal-<%= category.id %>">
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modal-<%= category.id%>" tabindex="-1" aria-labelledby="modal-<%= category.id%>Label" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Confirm Delete</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Are sure to delete <%= category.Name %>?. it will also delete linked expense</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+            <%= button_to "Continue to Delete", category, method: :delete, class: "btn btn-danger  btn-sm" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class="actions-toggle">
+    <div class="btn-group dropup">
+      <button type="button" class="btn btn-primary toggle-option" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fa fa-bars"></i>
+      </button>
+      <ul class="dropdown-menu">
+        <li class="dropdown-item-list">
+          <span class="fa fa-plus drop-icon"></span>
+          <%= link_to "Add Category", new_category_path, class: "dropdown-item" %>
+        </li>
+        <li class="dropdown-item-list">
+          <span class="fa fa-plus drop-icon"></span>
+          <%= link_to "Add Expense", new_expense_path, class: "dropdown-item" %>
+        </li>
+        <li class="dropdown-item-list">
+          <span class="fa fa-list drop-icon"></span>
+          <%= link_to "All Expenses", expenses_path, class: "dropdown-item" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
