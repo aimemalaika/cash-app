@@ -41,8 +41,8 @@
             <p>Are sure to delete <%= category.Name %>?. it will also delete linked expense</p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <%= button_to "Continue to Delete", category, method: :delete, class: "btn btn-danger" %>
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+            <%= button_to "Continue to Delete", category, method: :delete, class: "btn btn-danger  btn-sm" %>
           </div>
         </div>
       </div>
@@ -51,7 +51,7 @@
   <div class="actions-toggle">
     <div class="btn-group dropup">
       <button type="button" class="btn btn-primary toggle-option" data-bs-toggle="dropdown" aria-expanded="false">
-        <i class="fa fa-plus"></i>
+        <i class="fa fa-bars"></i>
       </button>
       <ul class="dropdown-menu">
         <li class="dropdown-item-list">
@@ -61,6 +61,10 @@
         <li class="dropdown-item-list">
           <span class="fa fa-plus drop-icon"></span>
           <%= link_to "Add Expense", new_expense_path, class: "dropdown-item" %>
+        </li>
+        <li class="dropdown-item-list">
+          <span class="fa fa-list drop-icon"></span>
+          <%= link_to "All Expenses", expenses_path, class: "dropdown-item" %>
         </li>
       </ul>
     </div>

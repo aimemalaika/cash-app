@@ -8,7 +8,11 @@ class ExpensesController < ApplicationController
     @categories = Category.all
   end
 
-  def destroy; end
+  def destroy
+    @expense = Expense.find(params[:id])
+    @expense.destroy
+    redirect_to categories_path
+  end
 
   def create
     @category = params[:expense][:category_ids]

@@ -171,6 +171,21 @@ header .smallackwoleadge {
   gap: 7px;
 }
 
+.expense-card-long {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 7px;
+}
+
+.classified-button {
+  height: 40px;
+}
+
+.classified-expenses {
+  line-height: 40px;
+  margin: 0;
+}
+
 .card-text {
   font-size: 14px;
   font-weight: 300;
@@ -258,4 +273,10 @@ header .smallackwoleadge {
 
 .drop-icon {
   padding: 8px 0 8px 12px;
+}
+
+.expense-title-image {
+    background: #fff;
+    height: 30px;
+    border-radius: 5px;
 }
