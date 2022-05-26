@@ -1,0 +1,13 @@
+<header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <% if @path_name.nil? %>
+          <h1> <i class="fa fa-angle-left"></i> Login <span class="smallackwoleadge">Login In</span></h1>
+        <% else %>
+          <h1> <i class="fa fa-arrow-left"></i> <%= @path_name %> </h1>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</header>
