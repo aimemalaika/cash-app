@@ -15,12 +15,12 @@
   <body>
     <div>
       <% flash.each do |type, msg|
-        if type == 'alert' %>
+        if type == 'alert' || type == 'error' %>
           <div class="alert alert-warning absolute-alert alert-dismissible fade show" role="alert">
             <strong>Hey there!</strong> <%= msg %>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
-        <% elsif type == 'notice' %>
+        <% elsif type == 'notice' || type == 'success' %>
           <div class="alert alert-success absolute-alert alert-dismissible fade show" role="alert">
             <strong>Hey there!</strong> <%= msg %>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

@@ -139,12 +139,15 @@ header .smallackwoleadge {
 .back-link {
   color: var(--white-color);
   text-decoration: none;
+  margin-right: 12px;
+  font-weight: bold !important;
 }
 
 .absolute-alert {
   position: absolute;
   width: 100%;
   top: 10%;
+  z-index: 10000;
 }
 
 .login_form {
@@ -210,6 +213,12 @@ header .smallackwoleadge {
 .logout_icon {
   font-size: 12px !important;
   color: var(--red-color);
+  margin-top: 5px;
+}
+
+.save_icon {
+  font-size: 12px !important;
+  color: var(--green-color);
   margin-top: 5px;
 }
 
