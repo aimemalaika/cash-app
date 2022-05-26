@@ -234,12 +234,12 @@ header .smallackwoleadge {
   top: 90%;
 }
 
-.dropdown-menu.show {
+.actions-toggle .dropdown-menu.show {
   background: transparent;
   border: none;
 }
 
-.dropdown-item-list {
+.actions-toggle .dropdown-item-list {
   color: var(--white-color);
   font-size: 13px;
   background-color: var(--blue-color);
@@ -247,11 +247,11 @@ header .smallackwoleadge {
   display: flex;
 }
 
-.dropdown-item-list a {
+.actions-toggle .dropdown-item-list a {
   color: var(--white-color);
 }
 
-.dropdown-item-list:hover {
+.actions-toggle .dropdown-item-list:hover {
   background-color: var(--blue-color);
   color: var(--white-color);
 }
