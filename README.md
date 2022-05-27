@@ -1,12 +1,14 @@
 # Cash App
-> n this project, a rails project is generated using rails new Project command that has connection to PostgreSQL database. This app says hello to the world when you navigate the home page at [localhost](http://localhost:3000/)
+> n this project, a rails project is generated using rails new Project command that has connection to PostgreSQL database. This app says hello to the world when you navigate the home page.
+![New Project(1)](https://user-images.githubusercontent.com/28307960/170734251-54833635-daf7-4cd8-8ebe-aa47c88aef32.png)
 
 ## Built With
 - Ruby
 - Ruby on Rails
 - PostgreSQL
 ## Live Demo
-### UNAVAILABLE REQUIRES A SERVER
+- [VIDEO PRESENTATION](https://www.loom.com/share/f05d805d3d4441688047b76ab9b45f20)
+- [LIVE LINK](https://mycashapp.herokuapp.com/)
 ## Getting Started
 - clone the repository by running\
     `git https://github.com/aimemalaika/blog.git`
