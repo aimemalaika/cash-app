@@ -14,13 +14,14 @@
   </div>
 </header>
 <div class="expense-card my-3 mx-2">
-  <% @categories.each do |category| %>
+  <% @categories.each do |category| 
+    @total_amount = category.expenses.sum(:Amount) %>
     <div class="card">
       <%= image_tag category.icon_url, class: "card-img-category mt-1" %>
       <div class="card-body">
         <p class="card-text"> 
           <span class="category_name"><%= category.Name %></span>
-          <span>$<span class="total_amount">30.00</span></span>
+          <span>$<span class="total_amount"> <%= @total_amount %></span></span>
         </p>
         <div class="d-flex">
           <%= link_to "Show", category, class: "btn btn-link" %>
