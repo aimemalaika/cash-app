@@ -70,8 +70,8 @@ body {
 }
 
 .splash-sections-two {
-  position: relative;
-  top: 70%;
+  position: absolute;
+  top: 80%;
 }
 
 .splash-sections-two a {
