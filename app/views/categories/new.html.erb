@@ -1,0 +1,28 @@
+<div class="row">
+  <%= form_for @category, local: true do |f| %>
+    <header>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>  
+              <span><%= link_to '', categories_path , class: 'fa fa-angle-left back-link mr-4' %> New Category</span>
+              <span class="smallackwoleadge"> 
+                <i class="fa fa-save save_icon"></i> 
+                <%= f.submit "Save", class: "btn btn-link smallackwoleadge" %>
+              </span>
+            </h1>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="login_form">
+      <div class="mb-4">
+        <%= f.text_field :Name, class: "form-control", placeholder: "Category Name" %>
+      </div>
+      <div class="mb-4">
+        <%= f.label :icon %>
+          <%= f.file_field :icon, class: "form-control" %>
+      </div>
+    </div>
+  <% end %>
+</div>

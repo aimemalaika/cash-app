@@ -5,12 +5,32 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css'>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js'></script>
+    <script src="https://use.fontawesome.com/3c644f570a.js"></script>
   </head>
 
   <body>
+    <div>
+      <% flash.each do |type, msg|
+        if type == 'alert' || type == 'error' %>
+          <div class="alert alert-warning absolute-alert alert-dismissible fade show" role="alert">
+            <strong>Hey there!</strong> <%= msg %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        <% elsif type == 'notice' || type == 'success' %>
+          <div class="alert alert-success absolute-alert alert-dismissible fade show" role="alert">
+            <strong>Hey there!</strong> <%= msg %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>

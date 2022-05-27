@@ -1,0 +1,70 @@
+<header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>
+          <span>
+            <%= link_to '', categories_path , class: 'fa fa-angle-left back-link mr-4' %>
+            <%= image_tag @category.icon_url, class: "expense-title-image" %>
+            <%= @category.Name %> Expenses
+          </span>
+          <span class="smallackwoleadge"> 
+            <i class="fa fa-power-off logout_icon"></i> 
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-link smallackwoleadge" %>
+          </span>
+        </h1>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="expense-card-long my-3 mx-2">
+  <% @expenses.each do |expense| %>
+    <div class="card">
+      <div class="card-body d-flex">
+        <p><%= expense.Name %> <br> <%= expense.created_at.strftime("%B %d, %Y") %> </p>
+        <p class="classified-expenses">$<%= expense.Amount %></p>
+        <button type="button" class="btn btn-link text-danger classified-button" data-bs-toggle="modal" data-bs-target="#modal-<%= expense.id %>">
+          Delete
+        </button>
+      </div>
+    </div>
+    <div class="modal fade" id="modal-<%= expense.id%>" tabindex="-1" aria-labelledby="modal-<%= expense.id%>Label" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Confirm Delete</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Are sure to delete <%= expense.Name %>?. it will also delete linked expense</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary  btn-sm" data-bs-dismiss="modal">Close</button>
+            <%= button_to "Continue to Delete", expense_path(expense), method: :delete,  class: "btn btn-danger btn-sm" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="actions-toggle">
+  <div class="btn-group dropup">
+    <button type="button" class="btn btn-primary toggle-option" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="fa fa-bars"></i>
+    </button>
+    <ul class="dropdown-menu">
+      <li class="dropdown-item-list">
+        <span class="fa fa-plus drop-icon"></span>
+        <%= link_to "Add Category", new_category_path, class: "dropdown-item" %>
+      </li>
+      <li class="dropdown-item-list">
+        <span class="fa fa-plus drop-icon"></span>
+        <%= link_to "Add Expense", new_expense_path, class: "dropdown-item" %>
+      </li>
+      <li class="dropdown-item-list">
+        <span class="fa fa-list drop-icon"></span>
+        <%= link_to "All Expenses", expenses_path, class: "dropdown-item" %>
+      </li>
+    </ul>
+  </div>
+</div>
