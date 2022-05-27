@@ -14,6 +14,7 @@
   </div>
 </header>
 <div class="expense-card-long my-3 mx-2">
+  <h6> Your Total Expense Amount is: $<%= @total_amount %></h6>
   <% @expenses.each do |expense| %>
     <div class="card">
       <div class="card-body d-flex">
